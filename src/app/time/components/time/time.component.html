@@ -1,0 +1,16 @@
+<div class="card has-padding-md">
+  <div class="level">
+    <div class="column-4 level __v-center __h-center __direction-column">
+      <div class="has-padding-sm has-margin-bottom-sm has-border-bottom">Last request to Time server request time</div>
+      <div>{{(serverClientTime$ | async)?.requestResponseTime}} MS</div>
+    </div>
+    <div class="column-4 level __v-center __h-center __direction-column">
+      <div class="has-padding-sm has-margin-bottom-sm has-border-bottom">Server Time</div>
+      <div>{{(serverClientTime$ | async)?.serverTime?.datetime | date:'medium'}}</div>
+    </div>
+    <div class="column-4 level __v-center __h-center __direction-column">
+      <div class="has-padding-sm has-margin-bottom-sm has-border-bottom">Client Time</div>
+      <div>{{(serverClientTime$ | async)?.currentClientTime | date:'medium'}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+@import 'variables';
+
+.level {
+  display: flex;
+
+  &.__direction-column {
+    flex-direction: column;
+  }
+
+  &.__h-space-between {
+    justify-content: space-between;
+  }
+
+  &.__h-end {
+    justify-content: flex-end;
+  }
+
+  &.__h-start {
+    justify-content: flex-start;
+  }
+
+  &.__h-center {
+    justify-content: center;
+  }
+
+  &.__v-center {
+    align-items: center;
+  }
+
+  &.__v-stretch {
+    align-items: stretch;
+  }
+
+  &.__v-start {
+    align-items: flex-start;
+  }
+
+  &.__v-end {
+    align-items: flex-end;
+  }
+
+  &.__v-baseline {
+    align-items: flex-end;
+  }
+
+  .column {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  @function get-column-width($i, $columns) {
+    @return 100% / $columns * $i;
+  }
+
+  $columns: 12;
+  @for $i from 1 through $columns {
+    .column-#{$i} {
+      flex: 0 0 get-column-width($i, $columns);
+      max-width: get-column-width($i, $columns);
+    }
+  }
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+// MARGINS - PADDING'S classes creation
+
+$spacings: xs, sm, md, lg;
+$spacings-variables: $spacing-xs, $spacing-sm, $spacing-md, $spacing-lg;
+$margin-spacing-directions: right, bottom;
+
+@for $i from 0 to length($spacings) {
+  $spacing-variable: nth($spacings-variables, $i + 1);
+  $spacing-name: nth($spacings, $i + 1);
+
+  .has-padding-#{$spacing-name} {
+    padding: $spacing-variable;
+  }
+
+  .has-padding-left-right-#{$spacing-name} {
+    padding-left: $spacing-variable;
+    padding-right: $spacing-variable;
+  }
+
+  .has-padding-top-bottom-#{$spacing-name} {
+    padding-top: $spacing-variable;
+    padding-bottom: $spacing-variable;
+  }
+
+  @each $spacing-direction in $margin-spacing-directions {
+    .has-margin-#{$spacing-direction}-#{$spacing-name} {
+      margin-#{$spacing-direction}: $spacing-variable;
+    }
+  }
+}
+
+.has-scroll-on-overflow {
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.corner-element {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  z-index: 3;
+}
+
+.has-text-bold {
+  font-weight: $weight-bold;
+}
+
+.is-full-width {
+  width: 100% !important;
+}
+
+.is-full-height {
+  height: calc(100vh - #{$main-content-margin-top-bottom} * 2);
+}
+
+.has-full-container-height {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.has-third-container-height {
+  height: calc(100% / 3);
+  box-sizing: border-box;
+}
+
+.has-two-thirds-container-height {
+  height: calc(100% / 3 * 2 - #{$spacing-md});
+  box-sizing: border-box;
+
+  &.__has-margin-bottom {
+    height: calc(100% / 3 * 2 - #{$spacing-md});
+  }
+}
+
+.main-layout {
+  width: calc(100% - #{$main-content-margin-top-bottom} * 2);
+  max-width: $max-desktop-container-width;
+  margin: $main-content-margin-top-bottom auto;
+  background-color: $background-color-primary;
+}

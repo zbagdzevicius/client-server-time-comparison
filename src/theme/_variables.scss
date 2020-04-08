@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+// LAYOUT VARIABLES
+$spacing-lg: 4rem;
+$spacing-md: 2rem;
+$spacing-sm: 1rem;
+$spacing-xs: 0.5rem;
+$max-desktop-container-width: 1700px;
+$main-content-margin-top-bottom: 5vh;
+$sidebar-height: calc(100vh - #{$main-content-margin-top-bottom} * 2);
+
+// TEXT VARIABLES
+$font-family: 'Raleway', sans-serif;
+$weight-bold: 600;
+$font-sm: 0.875rem;
+$font-md: 1.125rem;
+$font-lg: 1.25rem;
+
+// COLORS
+$color-grey: #ebebf7;
+$color-white: white;
+$color-purple: #271c6b;
+$color-purple-light: #584f8d;
+$color-disabled: rgb(187, 185, 186);
+$color-accent: #fe6194;
+$color-dark: rgb(41, 41, 41);
+$background-color: #c3c3e0;
+$background-color-primary: white;
+$secondary-content-color: #f6f5ff;
+
+// ETC
+$border-radius-xs: 0.25rem;
+$border-radius-md: 0.75rem;
+$border-radius-lg: 50%;
+$input-margin-bottom: $spacing-md;
+$box-shadow-light: 2px 4px 12px 0 rgba(0, 13, 255, 0.05);
+
